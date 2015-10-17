@@ -9,7 +9,7 @@ module Ruboty::Handlers
 
       to = message.original[:from]
       begin
-        str = NCipher.send("#{message[1]}code",message[2])
+        str = NCipher.send("#{message[1]}code",message[2].gsub("\uff5e", "\u301c"))
       rescue => e
         str = "さっきから皆変なのん！！ 何言ってるかわからないのん！！（#{e.message}）"
       end
