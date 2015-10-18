@@ -21,16 +21,23 @@ module Ruboty::Handlers
     end
 
     def talk(message)
-      Ruboty.logger.info("Handle event: talk: #{message.body}")
+      is_retweet = lambda {|msg|
+        return false if ENV['RUBOTY_ENV'] == 'development'
+        msg.original[:robot].memoized_table[:adapter].memoized_table.has_key? :client
+      }
 
-      to = message.original[:from]
-      str = `renge`
+      unless is_retweet.(message)
+        Ruboty.logger.info("Handle event: talk: #{message.body}")
 
-      msg = "@#{to} #{str}"
+        to = message.original[:from]
+        str = `renge`
 
-      message.reply(
-        msg.length > 140 ? msg[0,137] + '...' : msg
-      )
+        msg = "@#{to} #{str}"
+
+        message.reply(
+          msg.length > 140 ? msg[0,137] + '...' : msg
+        )
+      end
     end
   end
 end
