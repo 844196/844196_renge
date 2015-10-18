@@ -19,9 +19,11 @@ EOF
 $ bundle exec ruby run.rb
 ```
 
-## Function
+## Functions
 
-- 画像検索
-- [しゃべる](https://github.com/844196/renge)
-- [N暗号](https://github.com/844196/n_cipher)のエンコード・デコード
-- [@keep_off07](https://twitter.com/keep_off07)にうどんをあげる
+|Command|Pattern|Description|
+|:-----:|-------|-----------|
+|convert|/(en&#x7C;de)code\s(.+)\z/i|[N暗号](https://github.com/844196/n_cipher)のエンコード・デコード|
+|talk|/talk(?:.*)\z/i|しゃべる|
+|image2|/image( me)? (?&lt;keyword&gt;.+)/|画像検索(<https://github.com/r7kamura/ruboty-google_image>)
+|oudon|/(?:お?うどん&#x7C;o?udon)\z/i|[@keep_off07](https://twitter.com/keep_off07)におうどん :ramen: をあげる|
