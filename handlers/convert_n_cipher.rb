@@ -5,12 +5,7 @@ module Ruboty::Handlers
     on /(en|de)code\s(.+)\z/i, name: 'convert', description: 'convert string'
 
     def convert(message)
-      is_retweet = lambda {|msg|
-        return false if ENV['RUBOTY_ENV'] == 'development'
-        msg.original[:robot].memoized_table[:adapter].memoized_table.has_key? :client
-      }
-
-      unless is_retweet.(message)
+      unless message.original[:retweeted]
         Ruboty.logger.info("Handle event: convert: #{message.body}")
 
         to = message.original[:from]

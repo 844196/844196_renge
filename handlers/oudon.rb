@@ -3,12 +3,7 @@ module Ruboty::Handlers
     on /(?:お?うどん|o?udon)\z/i, name: 'oudon', description: 'Oudon is a traditional noodle cuisine of Japan'
 
     def oudon(message)
-      is_retweet = lambda {|msg|
-        return false if ENV['RUBOTY_ENV'] == 'development'
-        msg.original[:robot].memoized_table[:adapter].memoized_table.has_key? :client
-      }
-
-      unless is_retweet.(message)
+      unless message.original[:retweeted]
         Ruboty.logger.info("Handle event: oudon: #{message.body}")
         white_list = ['844196',
                       'hyousikinuko',
