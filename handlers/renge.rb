@@ -8,7 +8,7 @@ module Ruboty::Handlers
 
     def initialize(*args)
       super
-      task = {body: '844196_renge say', id: 0, schedule: '0,30 * * * *'}
+      task = {body: "#{robot.name} say", id: 0, schedule: '0,30 * * * *'}
       jobs = robot.brain.data['cron'] ||= {}
       job = Ruboty::Cron::Job.new(task)
       jobs[job.id] = job.to_hash
