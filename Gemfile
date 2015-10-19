@@ -4,6 +4,8 @@ gem 'ruboty'
 gem 'ruboty-cron'
 gem 'ruboty-google_image'
 gem 'n_cipher'
+gem 'ruboty-shinchoku'
+gem 'ruboty-tryruby'
 
 group :production do
   gem 'ruboty-twitter', :git => 'git@github.com:rutan/ruboty-twitter.git',
