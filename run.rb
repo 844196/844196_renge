@@ -12,7 +12,10 @@ max_retry = 5
     renge.run
   rescue => e
     action = i == max_retry ? 'shutting down...' : 'rebooting... Wait 5 min.'
-    renge.say(body: "Renge is #{action}\nreason: #{e.message}")
+    renge.say(
+      body: "Renge is #{action}\nreason: #{e.message}",
+      original: {id: nil, tweet: nil}
+    )
 
     sleep 300 if i != max_retry
   end
