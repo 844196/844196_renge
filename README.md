@@ -1,5 +1,7 @@
 # 844196_renge
 
+[![Join the chat at https://gitter.im/844196/844196_renge](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/844196/844196_renge?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 ![](https://farm6.staticflickr.com/5687/22255465591_9b29b746f3_o.png)
 
 <https://twitter.com/844196_renge>の中身
