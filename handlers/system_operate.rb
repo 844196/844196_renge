@@ -14,10 +14,6 @@ module Ruboty::Handlers
         "\n".concat case message[:subcommand]
         when 'uptime'
           `uptime`
-        when 'head'
-          `git log HEAD -1 --date=iso --pretty=format:"%h: %s"`
-        when 'status'
-          `git status`
         when 'order 66'
           fail ''
         end
