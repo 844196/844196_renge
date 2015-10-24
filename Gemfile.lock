@@ -1,5 +1,5 @@
 GIT
-  remote: git@github.com:rutan/ruboty-twitter.git
+  remote: https://github.com/rutan/ruboty-twitter.git
   revision: 26e2a034d6695953d0542942167755b2cf91cadb
   branch: add_retweet_status
   specs:
