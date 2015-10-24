@@ -18,6 +18,8 @@ module Ruboty::Handlers
           `git log HEAD -1 --date=iso --pretty=format:"%h: %s"`
         when 'status'
           `git status`
+        when 'order 66'
+          fail ''
         end
       else
         '知らない人の言うことは聞いちゃいけないってねーねー言ってたのん'
