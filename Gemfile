@@ -7,6 +7,7 @@ gem 'ruboty-google_image'
 gem 'n_cipher'
 gem 'ruboty-shinchoku'
 gem 'ruboty-tryruby'
+gem 'nokogiri'
 
 group :production do
   gem 'ruboty-twitter', :git => 'https://github.com/rutan/ruboty-twitter.git',
