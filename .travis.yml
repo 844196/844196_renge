@@ -1,0 +1,16 @@
+branches:
+    only:
+        - production
+addons:
+    ssh_known_hosts:
+        - haroku.844196.com
+before_script:
+    - openssl aes-256-cbc -K $encrypted_36a8e4755802_key -iv $encrypted_36a8e4755802_iv -in .travis/deploy_key.enc -out ~/.ssh/deploy_key -d
+script:
+    - echo hi
+after_success:
+    - eval "$(ssh-agent -s)"
+    - chmod 600 ~/.ssh/deploy_key
+    - ssh-add ~/.ssh/deploy_key
+    - git remote add haroku dokku@haroku.844196.com:renge
+    - git push -f haroku production:master
