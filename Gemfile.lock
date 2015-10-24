@@ -37,11 +37,14 @@ GEM
     memoizable (0.4.2)
       thread_safe (~> 0.3, >= 0.3.1)
     mime-types (2.6.2)
+    mini_portile (0.6.2)
     minitest (5.8.1)
     multipart-post (2.0.0)
     n_cipher (0.4.2)
       thor
     naught (1.1.0)
+    nokogiri (1.6.6.2)
+      mini_portile (~> 0.6.0)
     oauth (0.4.7)
     ruboty (1.2.2)
       activesupport
@@ -95,6 +98,7 @@ PLATFORMS
 
 DEPENDENCIES
   n_cipher
+  nokogiri
   ruboty
   ruboty-cron
   ruboty-google_image
