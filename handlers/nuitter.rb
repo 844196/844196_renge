@@ -1,5 +1,6 @@
 require 'nokogiri'
 require 'open-uri'
+require 'net/http'
 
 module Ruboty::Handlers
   class Nuitter < Base
@@ -36,14 +37,23 @@ module Ruboty::Handlers
     end
 
     def get_title(url)
-      uri   = URI.parse(url)
-      title = Nokogiri::HTML.parse(open(uri.to_s)).title
-
-      if title.nil? or title.empty?
-        title = File.basename(uri.to_s)
+      uri   = case url
+              when %r(\Ahttps?://t\.co/)
+                URI.parse(expand_tco(url))
+              else
+                URI.parse(url)
+              end
+      title = Nokogiri::HTML.parse(open(uri.to_s)).title.tap do |t|
+        break File.basename(uri.to_s) if t.nil? || t.empty?
       end
 
       title
+    rescue
+      nil
+    end
+
+    def expand_tco(tco)
+      timeout(5) { Net::HTTP.get_response(URI.parse(tco))['location'] }
     rescue
       nil
     end
