@@ -14,7 +14,7 @@ module Ruboty::Handlers
       return nil if message.original[:retweeted]
       from = message.original[:from]
 
-      nuitan = -> o { ".@#{from} が「#{o}」で抜いたん！ #Nuitter"}
+      nuitan = -> o { ".@#{from} が『#{o}』で抜いたん！ #Nuitter"}
       msg = if message[:okazu] =~ /\A(?:https?.+|ftp.+)/i
               ero = GetTitle.new(message[:okazu])
               ero.title ? "#{nuitan.(ero.title)} #{ero.url}" : "@#{from} よくわかんなかったん..."
